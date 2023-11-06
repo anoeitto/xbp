@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <title>第5回課題</title>
+</head>
+<h1>第5回課題</h1>
+<h2>お金の種類ごとの割合を円グラフにする</h2>
+<pre><code>
+    import matplotlib.pyplot as plt
+
+# 使ったお金の種類と金額を入力させる。enterを押すまで種類を増やせる
+categories = []
+amounts = []
+
+while True:
+    category = input("使ったお金の種類を入力してください（追加後再Enterでグラフ作成開始します）: ")
+    if category == "":
+        break
+    try:
+        amount = float(input("金額を入力してください: "))
+    except ValueError:
+        print("無効な金額です。再度入力してください。")
+        continue
+    categories.append(category)
+    amounts.append(amount)
+
+# 種類ごとの金額を円グラフで表示
+plt.figure(figsize=(8, 8))
+plt.pie(amounts, labels=categories, autopct='%1.1f%%', startangle=140)
+plt.title("使ったお金の割合")
+plt.show()
+</code></pre>
+<h3>説明</h3>
+ネットとchatGPTを参考にして、使ったお金の種類と金額を入力すると自動で円グラフを作ってくれるようなプログラミングwo
+を作りました。<br>
+毎月何にお金を使っているかわからないうちにお金がなくなっているので、娯楽や食費、固定費などが
+どの割合で使われているか気になりつくった。<br>
+調べてもなかなか自分が作りたいものと違ったり、出てこなかったりし時間が足りず、結果としてchatGPTに頼ってしまった事が反省点。<br>
+自分で完成させられるよう改善していきたい
